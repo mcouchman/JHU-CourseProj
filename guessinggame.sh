@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 # Filename - guessinggame.sh 
 # JHU - UNIX Workbench course assignment by Michael Couchman 2020-02-10 in Ontario, Canada
-# PART 1 Combine ls -l & grep -c to count the number of files in pwd and store in variable called linecount (Function 1) 
 function one {
 	cd .
 	linecount=$(ls -l | grep -c "^")
@@ -12,20 +11,19 @@ function one {
 		# PART 2 (Function II) If correct, then
 		if [[ $linecount -eq $guess ]]
 		then
-			echo "Congrats"
+			echo "Congratulations! That was correct :)"
 		fi
 		# IF guess is too high, then
 		if [[ $linecount -lt $guess ]]
 		then
-			echo "Too high!"
+			echo "That was too high! Try again."
 		fi
 		# If guess is too low
 		if [[ $linecount -gt $guess ]]
 		then
-			echo "Too low!"
+			echo "That was too low! Try again."
 		fi
 	done
-	echo "Congrats"
 	exit
 }
 one
