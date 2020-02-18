@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 # Filename - guessinggame.sh 
 # JHU - UNIX Workbench course assignment by Michael Couchman 2020-02-10 in Ontario, Canada
+# Set PATH to run regardless of directory, create GG-Directory (overwrite), then Change to that directory
+PATH=$PATH:$PWD; mkdir -p $HOME/GG_TEST/; cd $HOME/GG_TEST/
+echo $PATH
 function one {
-	cd .
-	linecount=$(ls -l | grep -c "^")
+	linecount=$(find . . -maxdepth 1 -mindepth 1 -type f | wc -l)-1
 	while [[ $linecount -ne $guess ]]
 	do
 		echo "Please enter a guess as to how many files are in this directory: "
 		read guess
-		# PART 2 (Function II) If correct, then
 		if [[ $linecount -eq $guess ]]
 		then
 			echo "Congratulations! That was correct :)"
