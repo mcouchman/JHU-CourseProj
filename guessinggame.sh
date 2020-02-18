@@ -10,10 +10,6 @@ function one {
 	do
 		echo "Please enter a guess as to how many files are in this directory: "
 		read guess
-		if [[ $linecount -eq $guess ]]
-		then
-			echo "Congratulations! That was correct :)"
-		fi
 		# IF guess is too high, then
 		if [[ $linecount -lt $guess ]]
 		then
@@ -25,6 +21,15 @@ function one {
 			echo "That was too low! Try again."
 		fi
 	done
+	if [[ $linecount -eq $guess ]]
+	then
+		echo "Congratulations! That was correct :)"
+	fi
+	if ! [[ $linecount -ne $guess ]]
+	then
+		echo "Error. Exiting.. Please Run Again and Enter Integers Only."
+		exit
+	fi
 	exit
 }
 one
